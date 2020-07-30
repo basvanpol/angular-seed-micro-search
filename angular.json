@@ -8,7 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@ngrx/schematics:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/custom-material-style.scss",
+              "src/styles/style.scss"
             ],
             "scripts": []
           },
@@ -72,7 +77,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles/custom-material-style.scss",
+              "src/styles/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -123,5 +129,9 @@
       }
     }
   },
-  "defaultProject": "book-search"
+  "defaultProject": "book-search",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "f0703111-c0c8-423d-a6bb-d9fb3420dca0"
+  }
 }
