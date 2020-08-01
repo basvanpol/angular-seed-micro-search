@@ -1,3 +1,5 @@
+import { IBook } from './../../../models/book';
+import { BooksHttpService } from './../../../services/http/books.http.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, Effect } from '@ngrx/effects';
 
@@ -11,38 +13,34 @@ import * as BooksActions from '../actions/books.actions';
 export class BooksEffects {
 
   constructor(
-    private actions$: Actions
+    private actions$: Actions,
+    private booksHttpService: BooksHttpService
   ) {}
 
-  // @Effect()
-  // retrievePerformanceData$ = this.actions$.pipe(
-  //   ofType(BooksActions.SEARCH_BOOKS),
-  //   switchMap((action: BooksActions.SearchBooks) => {
-  //     return this.booksService
-  //       .searchBooks(<string>action.payload)
-  //       .pipe(
-  //         map((res: {}[]): any => {
-  //           if (res) {
-  //             const performanceResultObject: IPerformanceDataResult = {
-  //               performanceData: res,
-  //               date: action.payload.date,
-  //               clientEntities: action.payload.clientEntities
-  //             };
-  //             return new PerformanceActions.SetPerformanceData(
-  //               performanceResultObject
-  //             );
-  //           }
-  //         }),
-  //         catchError(err => {
-  //           const errorMessage =
-  //             "Unfortunately Performance data couldn't be loaded. Apologies for the inconvenience.";
-  //           return of(
-  //             new PerformanceActions.PerformanceDataError(errorMessage)
-  //           );
-  //         })
-  //       );
-  //   })
-  // );
+  @Effect()
+  searchBooks$ = this.actions$.pipe(
+    ofType(BooksActions.SEARCH_BOOKS),
+    switchMap((action: BooksActions.SearchBooks) => {
+      return this.booksHttpService
+        .searchBooks(<string>action.payload)
+        .pipe(
+          map((res: IBook[]): any => {
+            if (res) {
+              return new BooksActions.SearchBooksSuccess(
+                res
+              );
+            }
+          }),
+          catchError(err => {
+            const errorMessage =
+              "Unfortunately books search data couldn't be loaded";
+            return of(
+              new BooksActions.SearchBooksFail(errorMessage)
+            );
+          })
+        );
+    })
+  );
 
 
 }

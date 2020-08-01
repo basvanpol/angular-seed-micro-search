@@ -2,11 +2,11 @@ import { IBooksState, initialBooksState } from './books.state';
 
 
 export interface IAppState {
-  books: IBooksState;
+  booksState: IBooksState;
 }
 
 export const initialAppState: IAppState = {
-  books: initialBooksState,
+  booksState: initialBooksState,
 };
 
 export function getInitialState(): IAppState {

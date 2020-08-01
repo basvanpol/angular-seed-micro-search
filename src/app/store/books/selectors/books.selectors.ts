@@ -3,5 +3,12 @@ import { IAppState } from './../../../models/state/app.state';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromBooks from '../reducers/books.reducer';
 
-export const getBooksState = createFeatureSelector<IAppState, IBooksState>('books');
+export const getBooksState = createFeatureSelector<IAppState, IBooksState>('booksState');
+
+
+export const getBooks = createSelector(
+  getBooksState,
+  (state: IBooksState) => state.books
+);
+
 

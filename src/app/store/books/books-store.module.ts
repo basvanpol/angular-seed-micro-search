@@ -10,7 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   imports: [
   CommonModule,
-  StoreModule.forFeature('books', booksReducer, {
+  StoreModule.forFeature('booksState', booksReducer, {
   initialState: initialBooksState
   }),
   EffectsModule.forFeature([BooksEffects])

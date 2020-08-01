@@ -10,10 +10,10 @@ import { MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/m
 export class SearchComponent implements AfterViewInit {
   @Input() showSearchNoResults = false;
   @Input() showSearchSelector = false;
+  @Input() searchInProgress = false;
   @Input() searchResultOptions: any = [];
   @Output() searchQuery: EventEmitter<string> = new EventEmitter();
   @Output() searchSelect: EventEmitter<MatAutocompleteSelectedEvent> = new EventEmitter();
-  public searchInProgress = false;
   public searchFormControl = new FormControl(null);
 
   @ViewChild(MatAutocompleteTrigger) autoTrigger: MatAutocompleteTrigger;

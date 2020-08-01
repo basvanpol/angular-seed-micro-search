@@ -1,0 +1,7 @@
+{
+  "/searchbooks": {
+    "target": "https://69uu90zma0.execute-api.ap-southeast-2.amazonaws.com/default/searchBooks/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
