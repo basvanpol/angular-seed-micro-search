@@ -30,8 +30,9 @@ export class SearchComponent {
         this.searchQuery.emit(query);
       } else if (query.length === 0) {
         this.searchInProgress = false;
-        this.resetSearchInput();
         this.showSearchNoResults = false;
+        this.resetSearchInput();
+        this.searchQuery.emit("");
       }
       this.refresh();
     });

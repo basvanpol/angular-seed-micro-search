@@ -25,11 +25,9 @@ export class BooksEffects {
         .searchBooks(<string>action.payload)
         .pipe(
           map((res: IBook[]): any => {
-            if (res) {
-              return new BooksActions.SearchBooksSuccess(
-                res
-              );
-            }
+            return new BooksActions.SearchBooksSuccess(
+              res
+            );
           }),
           catchError(err => {
             const errorMessage =

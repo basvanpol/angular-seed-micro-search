@@ -33,7 +33,9 @@ export class GetBookDataFail implements Action {
     constructor(public payload: string) { }
 }
 
-export type BooksActions = SearchBooks | SearchBooksSuccess | SearchBooksFail | GetBookData | GetBookDataSuccess | GetBookDataFail;
+
+export type BooksActions = SearchBooks | SearchBooksSuccess | SearchBooksFail |
+GetBookData | GetBookDataSuccess | GetBookDataFail;
 
 
 

@@ -22,7 +22,7 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
     case fromBooks.SEARCH_BOOKS_FAIL:
       return {
         ...state,
-        books: null,
+        books: [],
         isLoading: false,
         errorMessage: action.payload,
         searchNoResults: true,
