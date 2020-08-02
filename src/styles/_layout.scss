@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  padding: $default-section-padding;
+  padding: $large-section-padding;
 }
 
 .content__section-container {
@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $default-element-padding;
+  padding: $default-section-padding;
 
   &--center{
     @extend .content__section-container;
