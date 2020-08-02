@@ -21,6 +21,9 @@ export class BooksEffects {
   searchBooks$ = this.actions$.pipe(
     ofType(BooksActions.SEARCH_BOOKS),
     switchMap((action: BooksActions.SearchBooks) => {
+      if(action.payload === ""){
+        return of(new BooksActions.SearchBooksReset());
+      }
       return this.booksHttpService
         .searchBooks(<string>action.payload)
         .pipe(

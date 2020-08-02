@@ -7,6 +7,7 @@ export const SEARCH_BOOKS_FAIL = 'SEARCH_BOOKS_FAIL';
 export const GET_BOOK_DATA = 'GET_BOOK_DATA';
 export const GET_BOOK_DATA_SUCESS = 'GET_BOOK_DATA_SUCESS';
 export const GET_BOOK_DATA_FAIL = 'GET_BOOK_DATA_FAIL';
+export const SEARCH_BOOKS_RESET = 'SEARCH_BOOKS_RESET';
 
 export class SearchBooks implements Action {
     readonly type = SEARCH_BOOKS;
@@ -32,10 +33,12 @@ export class GetBookDataFail implements Action {
     readonly type = GET_BOOK_DATA_FAIL;
     constructor(public payload: string) { }
 }
-
+export class SearchBooksReset implements Action {
+  readonly type = SEARCH_BOOKS_RESET;
+}
 
 export type BooksActions = SearchBooks | SearchBooksSuccess | SearchBooksFail |
-GetBookData | GetBookDataSuccess | GetBookDataFail;
+GetBookData | GetBookDataSuccess | GetBookDataFail | SearchBooksReset;
 
 
 

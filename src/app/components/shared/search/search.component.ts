@@ -24,14 +24,10 @@ export class SearchComponent {
 
     this.searchFormControl = new FormControl();
     this.searchFormControl.valueChanges.pipe(debounceTime(400), distinctUntilChanged()).subscribe(query => {
-      if (query && query.length > 0) {
-        this.searchInProgress = true;
+      if (query) {
         this.emittedQuery = query;
         this.searchQuery.emit(query);
-      } else if (query.length === 0) {
-        this.searchInProgress = false;
-        this.showSearchNoResults = false;
-        this.resetSearchInput();
+      } else {
         this.searchQuery.emit("");
       }
       this.refresh();

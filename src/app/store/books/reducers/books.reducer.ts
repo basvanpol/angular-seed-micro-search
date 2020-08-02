@@ -46,6 +46,13 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
         errorMessage: action.payload,
         selectedBook: null
       };
+    case fromBooks.SEARCH_BOOKS_RESET:
+      return {
+        ...state,
+        books: [],
+        isLoading: false,
+        selectedBook: null
+      };
     default:
       return state;
   }
