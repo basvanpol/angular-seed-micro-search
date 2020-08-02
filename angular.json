@@ -30,6 +30,11 @@
               "src/styles/custom-material-style.scss",
               "src/styles/style.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

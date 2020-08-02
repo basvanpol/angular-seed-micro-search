@@ -1,13 +1,26 @@
-
-.app__container{
+.app__container {
   width: 100%;
   height: 100%;
 }
 
 .page-content__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding: $default-section-padding;
+}
+
+.content__section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $default-element-padding;
+
+  &--center{
+    @extend .content__section-container;
+    text-align: center;
+  }
 }

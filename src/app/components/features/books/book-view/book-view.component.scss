@@ -1,0 +1,42 @@
+@import "config";
+
+.book-content {
+  padding: $default-element-padding 0 $default-element-padding;
+  width: 50vw;
+  max-width: 500px;
+
+  @media #{$small-and-down} {
+    min-width: 300px;
+    max-width: 400px;
+  }
+
+  &__image-holder {
+    @extend .book-content;
+    background-color: $white;
+    padding: $default-element-padding;
+    max-width: 400px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__title-holder {
+    @extend .book-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: $default-section-margin
+  }
+  &__author {
+      color: $grey-text-color;
+      font-style: italic;
+      margin-top: $default-element-margin
+  }
+  &__description-holder {
+    @extend .book-content;
+    p {
+      font-size: $default-font-size;
+      line-height: 1.25;
+    }
+  }
+}

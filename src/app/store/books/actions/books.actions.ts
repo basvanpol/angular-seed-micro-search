@@ -4,6 +4,9 @@ import { Action } from '@ngrx/store';
 export const SEARCH_BOOKS = 'SEARCH_BOOKS';
 export const SEARCH_BOOKS_SUCCES = 'SEARCH_BOOKS_SUCCES';
 export const SEARCH_BOOKS_FAIL = 'SEARCH_BOOKS_FAIL';
+export const GET_BOOK_DATA = 'GET_BOOK_DATA';
+export const GET_BOOK_DATA_SUCESS = 'GET_BOOK_DATA_SUCESS';
+export const GET_BOOK_DATA_FAIL = 'GET_BOOK_DATA_FAIL';
 
 export class SearchBooks implements Action {
     readonly type = SEARCH_BOOKS;
@@ -17,8 +20,20 @@ export class SearchBooksFail implements Action {
     readonly type = SEARCH_BOOKS_FAIL;
     constructor(public payload: string) { }
 }
+export class GetBookData implements Action {
+    readonly type = GET_BOOK_DATA;
+    constructor(public payload: string) { }
+}
+export class GetBookDataSuccess implements Action {
+    readonly type = GET_BOOK_DATA_SUCESS;
+    constructor(public payload: IBook) { }
+}
+export class GetBookDataFail implements Action {
+    readonly type = GET_BOOK_DATA_FAIL;
+    constructor(public payload: string) { }
+}
 
-export type BooksActions = SearchBooks | SearchBooksSuccess | SearchBooksFail;
+export type BooksActions = SearchBooks | SearchBooksSuccess | SearchBooksFail | GetBookData | GetBookDataSuccess | GetBookDataFail;
 
 
 

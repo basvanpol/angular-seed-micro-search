@@ -1,5 +1,5 @@
 import { SearchComponent } from './../search.component';
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-search-books',
@@ -8,8 +8,8 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 })
 export class SearchBooksComponent extends SearchComponent implements OnInit {
 
-  constructor() {
-    super();
+  constructor(public cd: ChangeDetectorRef) {
+    super(cd);
   }
 
   ngOnInit(): void {

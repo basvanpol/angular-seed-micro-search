@@ -9,13 +9,9 @@
     </mat-progress-spinner>
     <mat-autocomplete #auto="matAutocomplete" class="search-books__result-list" (optionSelected)="onSearchOptionSelected($event)">
       <mat-option *ngFor="let book of searchResultOptions" [value]="book.id">
-        {{book.name}}
+        {{book.title}}
       </mat-option>
+      <mat-option *ngIf="showSearchNoResults" [value]="null">No results found for <em>{{ emittedQuery }}</em></mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </div>
-<p *ngIf="showSearchNoResults && showSearchSelector" class="no-result-text">
-  No results found for <em>{{ searchFormControl.value }}</em>.
-</p>
-<div style="position:fixed; left: 0; top:0; bottom:0; right:0; background: #ccc; opacity: 0; z-index:2"
-  *ngIf="showSearchSelector" (click)="onCloseSearch()"></div>

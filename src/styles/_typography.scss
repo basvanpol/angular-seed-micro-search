@@ -1,5 +1,25 @@
-@import 'config';
+@import "config";
 
-::placeholder{
+::placeholder {
   color: $placeholder-text-color !important;
+}
+
+body {
+  font-family: "Roboto";
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: normal;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
 }

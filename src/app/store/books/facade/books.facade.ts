@@ -20,4 +20,8 @@ export class BooksFacade {
     this.store.dispatch(new BooksActions.SearchBooks(query));
   }
 
+  public getBookData(selectedBookId: string) {
+    this.store.dispatch(new BooksActions.GetBookData(selectedBookId));
+  }
+
 }

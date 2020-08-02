@@ -20,4 +20,12 @@ export class BooksHttpService extends BaseHttpService {
       headers: this.getHttpHeaders()
     });
   }
+  public getBookData(id: string): Observable<any> {
+    const url = `${environment.webApiUrl}/books?id=${id}`;
+    return this.http.get(url, {
+      observe: 'body',
+      responseType: 'json',
+      headers: this.getHttpHeaders()
+    });
+  }
 }

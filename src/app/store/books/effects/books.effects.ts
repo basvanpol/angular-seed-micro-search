@@ -42,5 +42,30 @@ export class BooksEffects {
     })
   );
 
+  @Effect()
+  getBookData$ = this.actions$.pipe(
+    ofType(BooksActions.GET_BOOK_DATA),
+    switchMap((action: BooksActions.GetBookData) => {
+      return this.booksHttpService
+        .getBookData(<string>action.payload)
+        .pipe(
+          map((res: IBook): any => {
+            if (res) {
+              return new BooksActions.GetBookDataSuccess(
+                res
+              );
+            }
+          }),
+          catchError(err => {
+            const errorMessage =
+              "Unfortunately book data couldn't be loaded";
+            return of(
+              new BooksActions.GetBookDataFail(errorMessage)
+            );
+          })
+        );
+    })
+  );
+
 
 }

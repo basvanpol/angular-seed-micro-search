@@ -9,13 +9,15 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
     case fromBooks.SEARCH_BOOKS:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        searchNoResults: false,
       };
     case fromBooks.SEARCH_BOOKS_SUCCES:
       return {
         ...state,
         isLoading: false,
-        books: action.payload
+        books: action.payload,
+        searchNoResults: false
       };
     case fromBooks.SEARCH_BOOKS_FAIL:
       return {
@@ -23,7 +25,26 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
         books: null,
         isLoading: false,
         errorMessage: action.payload,
-        searchNoResults: true
+        searchNoResults: true,
+      };
+    case fromBooks.GET_BOOK_DATA:
+      return {
+        ...state,
+        isLoading: true,
+        selectedBook: null
+      };
+    case fromBooks.GET_BOOK_DATA_SUCESS:
+      return {
+        ...state,
+        isLoading: false,
+        selectedBook: action.payload
+      };
+    case fromBooks.GET_BOOK_DATA_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload,
+        selectedBook: null
       };
     default:
       return state;

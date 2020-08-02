@@ -1,1 +1,15 @@
 @import 'colours';
+
+$small-and-down: "screen and (max-width: 600px)" !default; // Mobile and small tablet
+$small-to-medium: "screen and (min-width: 601px)" !default; // Above 600 and below 1000 - tablet landscape
+$medium-to-large: "screen and (min-width: 1000px)" !default;
+$large-and-up: "screen and (min-width:1200px)" !default;
+
+$default-font-size: 11pt;
+$h2-font-size: 20px;
+$h3-font-size: 14px;
+
+$default-section-margin: 30px;
+$default-element-margin: 15px;
+$default-section-padding: 30px;
+$default-element-padding: 15px;

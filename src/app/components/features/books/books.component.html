@@ -1,3 +1,9 @@
 <div class="page-content__container">
-  <app-search-books #clientSearch [searchResultOptions]="searchResultOptions" [showSearchNoResults]="showSearchNoResults" [searchInProgress]="searchInProgress" (searchQuery)="onSearchQuery($event)"></app-search-books>
+  <app-search-books
+  [searchResultOptions]="searchResultOptions"
+  [showSearchNoResults]="showSearchNoResults"
+  [searchInProgress]="searchInProgress"
+  (searchQuery)="onSearchQuery($event)"
+  (searchSelect)="onSearchSelected($event)"></app-search-books>
+  <router-outlet></router-outlet>
 </div>
