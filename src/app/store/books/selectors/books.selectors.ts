@@ -11,4 +11,9 @@ export const getBooks = createSelector(
   (state: IBooksState) => state.books
 );
 
+export const getSelectedBook = createSelector(
+  getBooksState,
+  (state: IBooksState) => state.selectedBook
+);
+
 

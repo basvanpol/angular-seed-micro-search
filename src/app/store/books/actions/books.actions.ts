@@ -2,10 +2,10 @@ import { IBook } from './../../../models/book';
 import { Action } from '@ngrx/store';
 
 export const SEARCH_BOOKS = 'SEARCH_BOOKS';
-export const SEARCH_BOOKS_SUCCES = 'SEARCH_BOOKS_SUCCES';
+export const SEARCH_BOOKS_SUCCESS = 'SEARCH_BOOKS_SUCCESS';
 export const SEARCH_BOOKS_FAIL = 'SEARCH_BOOKS_FAIL';
 export const GET_BOOK_DATA = 'GET_BOOK_DATA';
-export const GET_BOOK_DATA_SUCESS = 'GET_BOOK_DATA_SUCESS';
+export const GET_BOOK_DATA_SUCCESS = 'GET_BOOK_DATA_SUCCESS';
 export const GET_BOOK_DATA_FAIL = 'GET_BOOK_DATA_FAIL';
 export const SEARCH_BOOKS_RESET = 'SEARCH_BOOKS_RESET';
 
@@ -14,7 +14,7 @@ export class SearchBooks implements Action {
     constructor(public payload: string) { }
 }
 export class SearchBooksSuccess implements Action {
-    readonly type = SEARCH_BOOKS_SUCCES;
+    readonly type = SEARCH_BOOKS_SUCCESS;
     constructor(public payload: IBook[]) { }
 }
 export class SearchBooksFail implements Action {
@@ -26,7 +26,7 @@ export class GetBookData implements Action {
     constructor(public payload: string) { }
 }
 export class GetBookDataSuccess implements Action {
-    readonly type = GET_BOOK_DATA_SUCESS;
+    readonly type = GET_BOOK_DATA_SUCCESS;
     constructor(public payload: IBook) { }
 }
 export class GetBookDataFail implements Action {

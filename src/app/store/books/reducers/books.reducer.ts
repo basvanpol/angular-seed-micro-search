@@ -12,7 +12,7 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
         isLoading: true,
         searchNoResults: false,
       };
-    case fromBooks.SEARCH_BOOKS_SUCCES:
+    case fromBooks.SEARCH_BOOKS_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -31,9 +31,10 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
       return {
         ...state,
         isLoading: true,
-        selectedBook: null
+        selectedBook: null,
+        books: []
       };
-    case fromBooks.GET_BOOK_DATA_SUCESS:
+    case fromBooks.GET_BOOK_DATA_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -50,8 +51,7 @@ export function booksReducer(state = initialBooksState, action: fromBooks.BooksA
       return {
         ...state,
         books: [],
-        isLoading: false,
-        selectedBook: null
+        isLoading: false
       };
     default:
       return state;

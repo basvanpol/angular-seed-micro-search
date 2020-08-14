@@ -15,13 +15,13 @@ export class BooksEffects {
   constructor(
     private actions$: Actions,
     private booksHttpService: BooksHttpService
-  ) {}
+  ) { }
 
   @Effect()
   searchBooks$ = this.actions$.pipe(
     ofType(BooksActions.SEARCH_BOOKS),
     switchMap((action: BooksActions.SearchBooks) => {
-      if(action.payload === ""){
+      if (action.payload === "") {
         return of(new BooksActions.SearchBooksReset());
       }
       return this.booksHttpService

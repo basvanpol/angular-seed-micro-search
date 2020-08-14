@@ -1,15 +1,17 @@
 import { IBook } from './../../../models/book';
-import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, ɵConsole } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-search',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent {
+export class SearchComponent implements OnDestroy {
   @Input() showSearchNoResults: boolean;
   @Input() searchInProgress: boolean;
   @Input() searchResultOptions: IBook[];
@@ -23,12 +25,10 @@ export class SearchComponent {
   constructor(public cd: ChangeDetectorRef) {
 
     this.searchFormControl = new FormControl();
-    this.searchFormControl.valueChanges.pipe(debounceTime(400), distinctUntilChanged()).subscribe(query => {
-      if (query) {
+    this.searchFormControl.valueChanges.pipe(debounceTime(400), distinctUntilChanged(), untilDestroyed(this)).subscribe(query => {
+      if (query && query.length > 0) {
         this.emittedQuery = query;
         this.searchQuery.emit(query);
-      } else {
-        this.searchQuery.emit("");
       }
       this.refresh();
     });
@@ -52,5 +52,7 @@ export class SearchComponent {
   private resetSearchInput() {
     this.searchFormControl.setValue('');
   }
+
+  ngOnDestroy() { }
 
 }
